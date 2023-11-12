@@ -8,10 +8,12 @@ import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
 
-  const userInfo = useSelector((state) => state.auth);
+  const userInfo = useSelector((state) => state.auth.userInfo);
   const [logoutApicall] = useLogoutMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  console.log(userInfo);
   
   const logoutHandler = async ()=>{
     try {
@@ -41,7 +43,7 @@ const Header = () => {
                         Profile
                       </NavDropdown.Item>
                     </LinkContainer>
-                    <LinkContainer to='/logout'>
+                    <LinkContainer to='/login'>
                       <NavDropdown.Item onClick={logoutHandler}>
                         Logout
                       </NavDropdown.Item>

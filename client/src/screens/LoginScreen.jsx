@@ -18,7 +18,7 @@ const LoginScreen = () => {
 
     const [login, { isLoading }] = useLoginMutation();
     const { userInfo } = useSelector((state) => state.auth);
-
+    console.log(userInfo);
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -28,6 +28,7 @@ const LoginScreen = () => {
             navigate('/')
         } catch (err) {
             toast.error(err?.data?.message || err.error);
+            console.log(err);
         }
     };
 
